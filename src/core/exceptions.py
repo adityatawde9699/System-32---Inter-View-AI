@@ -4,11 +4,14 @@ InterView AI - Custom Exceptions.
 Defines a hierarchy of domain-specific exceptions for clean error handling.
 """
 
+from __future__ import annotations
+from typing import Optional
+
 
 class InterviewAIError(Exception):
     """Base exception for all InterView AI errors."""
     
-    def __init__(self, message: str, details: str | None = None):
+    def __init__(self, message: str, details: Optional[str] = None):
         self.message = message
         self.details = details
         super().__init__(self.message)
@@ -60,7 +63,7 @@ class LLMConnectionError(LLMError):
 class LLMRateLimitError(LLMError):
     """Raised when rate limited by the LLM service."""
     
-    def __init__(self, service: str, retry_after: int | None = None):
+    def __init__(self, service: str, retry_after: Optional[int] = None):
         self.retry_after = retry_after
         super().__init__(
             message=f"Rate limited by {service}",

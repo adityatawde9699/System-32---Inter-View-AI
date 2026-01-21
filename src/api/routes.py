@@ -2,14 +2,18 @@
 InterView AI - API Routes.
 
 FastAPI router with all interview endpoints.
+Includes rate limiting to prevent abuse and Gemini credit drain.
 """
 
 import logging
 from typing import Dict
 
 import numpy as np
-from fastapi import APIRouter, HTTPException, UploadFile, File, WebSocket, WebSocketDisconnect, Query
+from fastapi import APIRouter, HTTPException, UploadFile, File, WebSocket, WebSocketDisconnect, Query, Request
 from fastapi.responses import JSONResponse
+from slowapi import Limiter
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 
 from src.api.schemas import (
     StartSessionRequest,
@@ -31,6 +35,9 @@ from src.infra.persistence.repository import SessionRepository
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api", tags=["interview"])
+
+# Rate limiting: 100 requests per hour per IP, with stricter limits on expensive endpoints
+limiter = Limiter(key_func=get_remote_address)
 
 # Session-based orchestrator storage for multi-user support
 sessions: Dict[str, InterviewOrchestrator] = {}
@@ -203,8 +210,12 @@ async def get_session_stats(session_id: str = Query(..., description="Session ID
 # =============================================================================
 
 @router.get("/question/next", response_model=QuestionResponse)
-async def get_next_question(session_id: str = Query(..., description="Session ID")):
-    """Get the next interview question."""
+@limiter.limit("30/hour")  # 30 questions per hour (3-4 questions per session is typical)
+async def get_next_question(
+    request: Request,
+    session_id: str = Query(..., description="Session ID")
+):
+    """Get the next interview question. Rate-limited to prevent LLM abuse."""
     try:
         orchestrator = get_orchestrator(session_id)
         
@@ -227,10 +238,11 @@ async def get_next_question(session_id: str = Query(..., description="Session ID
 
 
 @router.post("/answer/submit", response_model=AnswerResultResponse)
-async def submit_answer(request: SubmitAnswerRequest):
-    """Submit an answer and get evaluation."""
+@limiter.limit("30/hour")  # 30 answers per hour (matches question limit)
+async def submit_answer(request: Request, answer_request: SubmitAnswerRequest):
+    """Submit an answer and get evaluation. Rate-limited to prevent LLM abuse."""
     try:
-        orchestrator = get_orchestrator(request.session_id)
+        orchestrator = get_orchestrator(answer_request.session_id)
         
         if not orchestrator.session:
             raise HTTPException(status_code=400, detail="No active session")
@@ -238,8 +250,8 @@ async def submit_answer(request: SubmitAnswerRequest):
         # Create coaching feedback from text
         coach = AudioCoach()
         coaching = coach.get_coaching_feedback(
-            text=request.answer_text,
-            duration_seconds=request.duration_seconds,
+            text=answer_request.answer_text,
+            duration_seconds=answer_request.duration_seconds,
             audio_data=None,
         )
         

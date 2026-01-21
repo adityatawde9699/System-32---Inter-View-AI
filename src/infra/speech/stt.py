@@ -5,10 +5,12 @@ Uses faster-whisper for local transcription.
 Implements singleton pattern for model loading to prevent repeated initialization.
 """
 
+from __future__ import annotations
+
 import logging
 import os
 import tempfile
-from typing import Any, ClassVar
+from typing import Any, ClassVar, Optional
 
 from src.core.config import get_settings
 from src.core.exceptions import TranscriptionError
@@ -34,7 +36,7 @@ class WhisperSTT:
     preventing the expensive model initialization on every request.
     """
     
-    _model_cache: ClassVar[Any | None] = None
+    _model_cache: ClassVar[Optional[Any]] = None
     _model_loaded: ClassVar[bool] = False
     
     def __init__(self):

@@ -11,11 +11,13 @@ State Flow:
 IDLE -> SETUP -> INTRO -> QUESTIONING <-> LISTENING -> EVALUATING -> COMPLETE
 """
 
+from __future__ import annotations
+
 import asyncio
 import logging
 import uuid
 from datetime import datetime
-from typing import Callable
+from typing import Callable, Optional
 
 from src.core.config import get_settings
 from src.core.domain.models import (
@@ -100,7 +102,7 @@ class InterviewOrchestrator:
     # -------------------------------------------------------------------------
     
     @property
-    def session(self) -> InterviewSession | None:
+    def session(self) -> Optional[InterviewSession]:
         """Get current session."""
         return self._session
     
@@ -258,18 +260,21 @@ class InterviewOrchestrator:
         self._update_state(InterviewState.EVALUATING)
         
         try:
-            # 1. Transcribe audio
-            transcript = self._stt.transcribe_bytes(audio_bytes, sample_rate)
+            # 1. Transcribe audio (offload to thread pool to avoid blocking event loop)
+            transcript = await asyncio.to_thread(
+                self._stt.transcribe_bytes, audio_bytes, sample_rate
+            )
             
             # 2. Calculate duration
             audio_np = audio_bytes_to_numpy(audio_bytes, sample_rate)
             duration = len(audio_np) / sample_rate if audio_np.size > 0 else 0
             
-            # 3. Coaching analysis (LOCAL - zero latency)
-            coaching = self._coach.get_coaching_feedback(
-                text=transcript,
-                duration_seconds=duration,
-                audio_data=audio_np,
+            # 3. Coaching analysis (LOCAL - zero latency, still runs on thread pool for consistency)
+            coaching = await asyncio.to_thread(
+                self._coach.get_coaching_feedback,
+                transcript,
+                duration,
+                audio_np,
             )
             
             # Notify coaching callback immediately
@@ -331,9 +336,9 @@ class InterviewOrchestrator:
     # TTS Methods
     # -------------------------------------------------------------------------
     
-    def speak_question(self, question: str) -> bytes | None:
+    async def speak_question(self, question: str) -> Optional[bytes]:
         """
-        Convert question to speech.
+        Convert question to speech asynchronously.
         
         Args:
             question: Question text
@@ -341,7 +346,9 @@ class InterviewOrchestrator:
         Returns:
             Audio bytes for playback
         """
-        return self._tts.synthesize_to_bytes(question)
+        return await asyncio.to_thread(
+            self._tts.synthesize_to_bytes, question
+        )
     
     # -------------------------------------------------------------------------
     # Utility Methods
