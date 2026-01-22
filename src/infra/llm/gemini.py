@@ -5,6 +5,8 @@ Provides interview-specific functionality using Google Gemini API.
 Handles question generation, answer evaluation, and follow-up logic.
 """
 
+from __future__ import annotations
+
 import json
 import logging
 import re

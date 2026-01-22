@@ -25,6 +25,8 @@ pyttsx3>=2.90               # Local TTS
 fastapi>=0.109.0            # API framework
 uvicorn[standard]>=0.27.0   # ASGI server
 python-multipart>=0.0.6     # File upload support
+slowapi>=0.1.9              # Rate limiting middleware
+redis>=5.0.0                # Redis client (optional, for session store)
 
 # Optional: Keep streamlit for alternative UI
 # streamlit>=1.30.0

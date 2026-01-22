@@ -5,10 +5,13 @@ Extracts text from resume PDFs using pypdf.
 Handles edge cases like encrypted PDFs and empty pages.
 """
 
+from __future__ import annotations
+
 import logging
 import os
 import re
 from pathlib import Path
+from typing import Optional, Union
 
 from src.core.exceptions import PDFParseError, EmptyDocumentError
 
@@ -25,7 +28,7 @@ except ImportError:
     logger.warning("⚠️ pypdf not installed. PDF parsing will use mock data.")
 
 
-def extract_resume_text(pdf_path: str | Path) -> str:
+def extract_resume_text(pdf_path: Union[str, Path]) -> str:
     """
     Extract text content from a resume PDF.
     

@@ -81,13 +81,23 @@ async def lifespan(app: FastAPI):
     Application lifespan manager.
     
     Handles startup and shutdown events:
-    - Startup: Start background cleanup task
+    - Startup: Warm up Whisper model, start background cleanup task
     - Shutdown: Cancel cleanup task gracefully
     """
     global _cleanup_task
     
     # Startup
     logger.info("🚀 InterView AI API starting...")
+    
+    # Warm up Whisper model before accepting traffic
+    logger.info("🔥 Pre-loading Whisper STT model...")
+    try:
+        from src.infra.speech.stt import WhisperSTT
+        stt = WhisperSTT()
+        logger.info("✅ Whisper model loaded successfully")
+    except Exception as e:
+        logger.warning(f"⚠️ Whisper model warmup failed (will retry on first use): {e}")
+    
     _cleanup_task = asyncio.create_task(background_cleanup_task())
     
     yield
@@ -113,6 +123,13 @@ def create_app() -> FastAPI:
         redoc_url="/api/redoc",
         lifespan=lifespan,
     )
+    
+    # Rate limiting
+    from slowapi.middleware import SlowAPIMiddleware
+    from src.api.routes import limiter
+    
+    app.state.limiter = limiter
+    app.add_middleware(SlowAPIMiddleware)
     
     # CORS middleware for local development
     app.add_middleware(

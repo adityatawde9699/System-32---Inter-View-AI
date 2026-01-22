@@ -5,10 +5,12 @@ Uses pyttsx3 for local text-to-speech synthesis.
 Returns audio bytes for browser playback.
 """
 
+from __future__ import annotations
+
 import logging
 import os
 import tempfile
-from typing import ClassVar
+from typing import ClassVar, Optional
 
 from src.core.exceptions import TTSError
 
@@ -63,7 +65,7 @@ class TTSEngine:
             logger.error(f"❌ Failed to initialize TTS: {e}")
             TTSEngine._engine = None
     
-    def synthesize_to_bytes(self, text: str) -> bytes | None:
+    def synthesize_to_bytes(self, text: str) -> Optional[bytes]:
         """
         Synthesize text to audio bytes.
         

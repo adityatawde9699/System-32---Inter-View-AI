@@ -10,9 +10,11 @@ Key metrics:
 - Filler Words: Count "um", "uh", "like", "you know"
 """
 
+from __future__ import annotations
+
 import logging
 from dataclasses import dataclass, field
-from typing import ClassVar
+from typing import ClassVar, Optional
 
 import numpy as np
 
@@ -155,7 +157,7 @@ class AudioCoach:
         self,
         text: str,
         duration_seconds: float,
-        audio_data: np.ndarray | None = None,
+        audio_data: Optional[np.ndarray] = None,
     ) -> CoachingFeedback:
         """
         Get comprehensive coaching feedback.

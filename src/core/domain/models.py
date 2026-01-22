@@ -5,6 +5,8 @@ Defines the core data structures used throughout the application.
 Uses dataclasses for clarity and immutability where appropriate.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
