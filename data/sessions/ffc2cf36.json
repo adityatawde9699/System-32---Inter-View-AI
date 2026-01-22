@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "session_id": "ffc2cf36",
+  "state": "evaluating",
+  "resume_text": "Jason Miller Amazon Associate Profile Experienced Amazon Associate with five years\u2019 tenure in a shipping yard setting, maintaining an average picking/packing speed of 98%. Holds a zero error% score in adhering to packing specs and 97% error-free ratio on packing records. Completed a certificate in Warehouse Sanitation and has a valid commercial driver\u2019s license. Employment History Amazon Warehouse Associate at Amazon, Miami Gardens January 2021 \u2014 July 2022 Performed all warehouse laborer duties such as packing, picking, counting, record keeping, and maintaining a clean area. \u2022 Consistently maintained picking/packing speeds in the 98th percentile. \u2022 Picked all orders with 100% accuracy despite high speeds. \u2022 Maintained a clean work area, meeting 97.5% of the inspection requirements. Laboratory Inventory Assistant at Dunrea Laboratories, Orlando January 2019 \u2014 December 2020 Full-time lab assistant in a small, regional laboratory tasked with \u00b7 participating in Kaizen Events, Gemba walks, and 5S to remove barriers and improve productivity. \u2022 Filled the warehouse helper job description, which involved picking, packing, shipping, inventory management, and cleaning equipment. \u2022 Saved 12% on UPS orders by staying on top of special deals. \u2022 Cut down storage waste by 23% by switching to a Kanban system. Education Associates Degree in Logistics and Supply Chain Fundamentals, Atlanta Technical College, Atlanta January 2021 \u2014 July 2022 \u2022 Majors: Warehousing Operations, Logistics and Distribution Practices \u2022 Minors: Inventory Systems, Supply Chain Principles Courses Online Graduate Certificate in Warehousing & Supply Chain Management, Southern New Hampshire University (SNHU), NH. July 2022 \u2014 July 2022 Details 1515 Pacific Ave Los Angeles, CA 90291 United States 3868683442 email@email.com Place of birth San Antonio Driving license Full Links LinkedIn Pinterest Resume Templates Build this template Skills Cleaning Equipment Cleaning Equipment Mathematics Cleaning Equipment Deep Sanitation Practices Hobbies Action Cricket, Rugby, Athletics Languages English Spanish Warehousing, Operations, and Disposal Course, Graduate School USA, Washington DC. January 2021 \u2014 May 2021 Achievements \u2022 Decrease the errors rate and QC several more orders that we ship per day. \u2022 Awarded \"Employee of the month\" due to consistent attendance, punctuality, and performance. \u2022 Managed workflow of associates for the FC.",
+  "job_description": "I aspire to get a data center manager",
+  "current_question": "",
+  "started_at": "2026-01-22T15:24:53.890579",
+  "ended_at": null,
+  "total_questions_asked": 4,
+  "total_filler_words": 1,
+  "average_wpm": 100.36846477670396,
+  "exchanges": [
+    {
+      "question": "",
+      "answer": "start recording hello how are you I'm fine this is the testing of the model is  it recording or not so the first question is is it recording if it is  recording then I should see the transcription",
+      "duration_seconds": 17.16,
+      "timestamp": "2026-01-22T15:26:00.979548",
+      "evaluation": {
+        "technical_accuracy": 5,
+        "clarity": 5,
+        "depth": 5,
+        "completeness": 5,
+        "improvement_tip": "Unable to evaluate - please continue.",
+        "positive_note": "Keep going!"
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "OK",
+        "filler_count": 1,
+        "words_per_minute": 132.86713286713285,
+        "primary_alert": "\u2705 Great delivery! Keep it up.",
+        "alert_level": "ok"
+      }
+    },
+    {
+      "question": "",
+      "answer": "Bola pundarika varde aariya tala, sri namadeva tukaraam.  Gey jab ban kurunga na main, tab aayegaon.",
+      "duration_seconds": 11.46,
+      "timestamp": "2026-01-22T15:28:23.279392",
+      "evaluation": {
+        "technical_accuracy": 5,
+        "clarity": 5,
+        "depth": 5,
+        "completeness": 5,
+        "improvement_tip": "Unable to evaluate - please continue.",
+        "positive_note": "Keep going!"
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "\u23e9 Pick Up Pace! Try to be more concise.",
+        "filler_count": 0,
+        "words_per_minute": 83.7696335078534,
+        "primary_alert": "\u23e9 Pick Up Pace! Try to be more concise.",
+        "alert_level": "warning"
+      }
+    },
+    {
+      "question": "",
+      "answer": "Say something in Japanese  I don't know  My name is Aditya Sandesh  What's your name?",
+      "duration_seconds": 7.56,
+      "timestamp": "2026-01-22T15:29:22.389085",
+      "evaluation": {
+        "technical_accuracy": 5,
+        "clarity": 5,
+        "depth": 5,
+        "completeness": 5,
+        "improvement_tip": "Unable to evaluate - please continue.",
+        "positive_note": "Keep going!"
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "OK",
+        "filler_count": 0,
+        "words_per_minute": 119.04761904761905,
+        "primary_alert": "\u2705 Great delivery! Keep it up.",
+        "alert_level": "ok"
+      }
+    },
+    {
+      "question": "",
+      "answer": "Maynichi ni sutiki desu ne?",
+      "duration_seconds": 4.56,
+      "timestamp": "2026-01-22T15:30:05.029515",
+      "evaluation": {
+        "technical_accuracy": 5,
+        "clarity": 5,
+        "depth": 5,
+        "completeness": 5,
+        "improvement_tip": "Unable to evaluate - please continue.",
+        "positive_note": "Keep going!"
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "\u23e9 Pick Up Pace! Try to be more concise.",
+        "filler_count": 0,
+        "words_per_minute": 65.78947368421053,
+        "primary_alert": "\u23e9 Pick Up Pace! Try to be more concise.",
+        "alert_level": "warning"
+      }
+    }
+  ]
+}

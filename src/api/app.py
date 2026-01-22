@@ -18,6 +18,20 @@ from fastapi.responses import FileResponse
 from src.core.config import configure_logging
 from src.api.routes import router as api_router, cleanup_stale_sessions, session_repo
 
+from src.infra.speech.stt import WhisperSTT
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    logger.info("🚀 InterView AI API starting...")
+    
+    # Pre-load the model to RAM/VRAM during startup
+    # This ensures the download happens before the server accepts traffic
+    logger.info("⏳ Pre-loading Whisper model...")
+    WhisperSTT() 
+    
+    _cleanup_task = asyncio.create_task(background_cleanup_task())
+    yield
+
 
 # Configure logging
 configure_logging()

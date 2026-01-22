@@ -253,7 +253,7 @@ def audio_bytes_to_numpy(audio_bytes: bytes, sample_rate: int = 16000) -> np.nda
         
         # Auto-detect format (pydub uses ffmpeg for format detection)
         # This works with WebM, WAV, MP3, OGG, etc.
-        audio = AudioSegment.from_file(io.BytesIO(audio_bytes))
+        audio = AudioSegment.from_file(io.BytesIO(audio_bytes), format="webm")
         
         # Convert to mono if stereo
         if audio.channels > 1:

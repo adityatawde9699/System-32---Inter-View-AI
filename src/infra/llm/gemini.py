@@ -140,7 +140,7 @@ class GeminiInterviewer:
         )
         
         return await self._generate(prompt)
-    
+     
     async def _generate(self, prompt: str, temperature: float = 0.7) -> str:
         """Internal method to call Gemini API."""
         try:
