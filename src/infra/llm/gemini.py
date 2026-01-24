@@ -11,7 +11,7 @@ import json
 import logging
 import re
 
-import google.generativeai as genai
+import google.genai as genai
 
 from src.core.config import get_settings
 from src.core.exceptions import (

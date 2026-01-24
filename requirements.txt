@@ -7,7 +7,7 @@
 # -----------------------------------------------------------------------------
 # Core AI
 # -----------------------------------------------------------------------------
-google-generativeai>=0.8.5  # Gemini API
+google-genai>=0.3.0         # Gemini API (new package, replacing google-generativeai)
 faster-whisper>=1.0.0       # Local STT (requires CUDA for GPU acceleration)
 pypdf>=4.0.0                # Resume PDF parsing
 

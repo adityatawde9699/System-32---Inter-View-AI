@@ -6,7 +6,7 @@ Uses pydantic-settings for environment variable loading with validation.
 
 import logging
 from functools import lru_cache
-from typing import Literal
+from typing import Literal, Optional
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -25,10 +25,20 @@ class Settings(BaseSettings):
     # API Keys
     # -------------------------------------------------------------------------
     GEMINI_API_KEY: str = ""
+    GEMINI_MODEL: str = "gemini-2.0-flash"  # Latest Gemini model
     
     # -------------------------------------------------------------------------
     # Firebase Configuration
     # -------------------------------------------------------------------------
+    # Web App Firebase Credentials (from frontend/js/firebase-config.js)
+    FIREBASE_API_KEY: str = ""
+    FIREBASE_AUTH_DOMAIN: str = ""
+    FIREBASE_PROJECT_ID: str = ""
+    FIREBASE_STORAGE_BUCKET: str = ""
+    FIREBASE_MESSAGING_SENDER_ID: str = ""
+    FIREBASE_APP_ID: str = ""
+    FIREBASE_MEASUREMENT_ID: str = ""
+    
     # Path to your Firebase Admin SDK service account JSON file
     FIREBASE_CREDENTIALS_PATH: str = "firebase_credentials.json"
     

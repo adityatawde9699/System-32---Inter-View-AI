@@ -1,6 +1,8 @@
 // static/js/firebase-config.js
 
 // 1. Your Web App's Firebase Configuration
+// NOTE: These credentials are loaded from backend /api/config endpoint
+// to keep frontend & backend configuration synchronized
 const firebaseConfig = {
     apiKey: "AIzaSyDMUPBhgYlPSyroIDPtJlU4hNecioHDQM8",
     authDomain: "system-32-70354.firebaseapp.com",
@@ -10,6 +12,21 @@ const firebaseConfig = {
     appId: "1:1040628446776:web:b199662f9e17cee62ed8cd",
     measurementId: "G-E3L82P0646"
 };
+
+// Alternative: Load from backend configuration endpoint (recommended)
+// Uncomment to use: 
+/*
+async function loadFirebaseConfig() {
+    try {
+        const response = await fetch('/api/config');
+        const config = await response.json();
+        return config;
+    } catch (error) {
+        console.error("Failed to load Firebase config from backend:", error);
+        return firebaseConfig; // Fallback to hardcoded config
+    }
+}
+*/
 
 // 2. Initialize Firebase (Compat syntax)
 firebase.initializeApp(firebaseConfig);

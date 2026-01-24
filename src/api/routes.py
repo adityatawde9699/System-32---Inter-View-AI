@@ -32,6 +32,7 @@ from src.infra.utils.pdf_parser import extract_from_bytes
 from src.core.domain.models import InterviewExchange
 from src.infra.persistence.repository import SessionRepository
 from src.infra.firebase_service import firebase_service  # <--- Added Import
+from src.core.config import get_settings
 
 
 logger = logging.getLogger(__name__)
@@ -51,6 +52,29 @@ SESSION_TIMEOUT_HOURS = 2  # Cleanup sessions older than this
 
 # Session persistence repository
 session_repo = SessionRepository()
+
+
+@router.get("/config")
+async def get_config() -> Dict:
+    """
+    Serve Firebase configuration to frontend.
+    
+    This endpoint ensures frontend & backend configuration are synchronized
+    and credentials are managed from a single source (.env file).
+    """
+    settings = get_settings()
+    
+    return {
+        "firebase": {
+            "apiKey": settings.FIREBASE_API_KEY,
+            "authDomain": settings.FIREBASE_AUTH_DOMAIN,
+            "projectId": settings.FIREBASE_PROJECT_ID,
+            "storageBucket": settings.FIREBASE_STORAGE_BUCKET,
+            "messagingSenderId": settings.FIREBASE_MESSAGING_SENDER_ID,
+            "appId": settings.FIREBASE_APP_ID,
+            "measurementId": settings.FIREBASE_MEASUREMENT_ID,
+        }
+    }
 
 
 def get_orchestrator(session_id: str) -> InterviewOrchestrator:
