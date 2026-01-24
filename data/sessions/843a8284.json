@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "session_id": "843a8284",
+  "state": "evaluating",
+  "resume_text": "MAHESH KIRDE Maharashtra, India Email: kirdemahesh@email.com | Mobile:7822884694 LinkedIn / GitHub: CAREER OBJECTIVE Passionate Artificial Intelligence & Data Science student with strong interest in AI, Data Analysis, and Web Development. Seeking opportunities to apply technical skills, learn industry practices, and contribute to real-world projects while growing as a professional. EDUCATION B.Tech in Artificial Intelligence & Data Science Jawaharlal Nehru Engineering college , Maharashtra (Expected Graduation: 2026) TECHNICAL SKILLS \u2022 Programming: C, Python, JavaScript \u2022 Web: HTML, CSS, ReactJS, Node.js \u2022 Database: MongoDB, MySQL \u2022 Tools: Git, VS Code, PowerPoint \u2022 Basics of Machine Learning & Data Analysis PROJECTS \u2022 AgMarket Watch \u2013 App providing live seed & pulse prices for districts in Maharashtra \u2022 React-based Portfolio Website with modern UI/UX and responsive design \u2022 Free Fire Tournament Website with registration system CERTIFICATIONS / LEARNING \u2022 AI & Data Science fundamentals \u2022 Web Development (Frontend & MERN basics) \u2022 Self-learning through projects & online platforms STRENGTHS \u2022 Quick learner & problem solver \u2022 Creative thinker with UI/UX sense \u2022 Good communication & teamwork skills DECLARATION I hereby declare that the above information is true to the best of my knowledge.",
+  "job_description": "ai and data science engineer",
+  "current_question": "Could you tell me more about the AgMarket Watch app you developed? I'm particularly interested in how you approached gathering and presenting the live seed and pulse prices for different districts in Maharashtra.",
+  "started_at": "2026-01-24T09:36:39.793354",
+  "ended_at": null,
+  "total_questions_asked": 1,
+  "total_filler_words": 0,
+  "average_wpm": 83.96946564885496,
+  "exchanges": [
+    {
+      "question": "Could you tell me more about the AgMarket Watch app you developed? I'm particularly interested in how you approached gathering and presenting the live seed and pulse prices for different districts in Maharashtra.",
+      "answer": "I don't, I'm not interested.  No, I don't want to type.",
+      "duration_seconds": 7.86,
+      "timestamp": "2026-01-24T09:38:03.163143",
+      "evaluation": {
+        "technical_accuracy": 1,
+        "clarity": 1,
+        "depth": 1,
+        "completeness": 1,
+        "improvement_tip": "The candidate needs to engage with the question and provide an answer, rather than refusing to answer. They should listen to the question carefully and respond with relevant information about their project.",
+        "positive_note": "The candidate was direct in their refusal to answer, which, while unhelpful in this context, shows a form of communication."
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "\u23e9 Pick Up Pace! Try to be more concise.",
+        "filler_count": 0,
+        "words_per_minute": 83.96946564885496,
+        "primary_alert": "\u23e9 Pick Up Pace! Try to be more concise.",
+        "alert_level": "warning"
+      }
+    }
+  ]
+}
