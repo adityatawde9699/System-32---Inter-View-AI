@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "session_id": "74e68f8b",
+  "state": "evaluating",
+  "resume_text": "Mahesh Kirde [Phone Number] | [Email Address] | [LinkedIn Profile/Portfolio] Professional Summary Motivated B.Tech student specializing in Artificial Intelligence with a strong foundation in Python and Web Development. Passionate about building intelligent systems, demonstrated through the development of a personal AI voice assistant and a unified data management engine. Seeking a Summer 2026 internship in Machine Learning to apply technical skills and contribute to innovative AI solutions. Core Competencies Artificial Intelligence | Python Programming | Web Development Flask Framework | Data Visualization | HTML/JavaScript Project Experience Personal AI Voice Assistant (\"Micky\") | Personal Project | [Start Date] \u2013 Present \u2022 Developing a modular AI voice assistant using Python to automate tasks and enhance user interaction. \u2022 Implemented voice recognition and response capabilities, focusing on modular code architecture for easy feature expansion. Unified Data Management Engine (UDME) | System Development Project \u2022 Designed and built a comprehensive data management system using Python and Flask for the backend. \u2022 Developed a dynamic frontend using HTML, JavaScript, and Chart.js to visualize complex data sets effectively. \u2022 Streamlined data handling processes, improving data accessibility and presentation. Education B.Tech in Artificial Intelligence | [University Name] | [Expected Graduation Year] Certifications & Skills \u2022 Technical Skills: Python, Flask, JavaScript, HTML/CSS, Chart.js, Machine Learning Concepts. \u2022 Soft Skills: Problem-solving, Project Management, Continuous Learning. \u2022 [Add any specific certifications here, e.g., \"Certified Python Programmer\" or \"Google AI Essentials\"]",
+  "job_description": "Data scientist and environmental analysts",
+  "current_question": "That's a good overview of the data validation and error handling. Now, thinking about the \"Micky\" AI Voice Assistant, can you elaborate on the specific machine learning concepts you applied to achieve the voice recognition and response capabilities?",
+  "started_at": "2026-01-23T19:45:23.973523",
+  "ended_at": null,
+  "total_questions_asked": 4,
+  "total_filler_words": 1,
+  "average_wpm": 97.80130524373192,
+  "exchanges": [
+    {
+      "question": "Could you tell me more about the modular architecture you implemented for your Personal AI Voice Assistant, \"Micky,\" and how that approach has helped you with feature expansion?",
+      "answer": "recording  Mickey is a very good modular architecture. I am currently planning to use the post-grade SQLA net  I just planned Mickey to have a personal secretary assistant  I got inspired to build Mickey from a movie of Marvel named Iron Man  Created in 2008  When I saw Jarvis first, I was in love with it  That's all",
+      "duration_seconds": 43.86,
+      "timestamp": "2026-01-23T19:47:36.522380",
+      "evaluation": {
+        "technical_accuracy": 2,
+        "clarity": 1,
+        "depth": 1,
+        "completeness": 1,
+        "improvement_tip": "Focus on clearly explaining the technical details of the modular architecture itself, rather than just mentioning technologies or inspirations. For example, describe the different modules, their responsibilities, and how they interact.",
+        "positive_note": "The candidate expressed enthusiasm for the project and drew inspiration from a well-known AI character."
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "\u23e9 Pick Up Pace! Try to be more concise.",
+        "filler_count": 0,
+        "words_per_minute": 79.34336525307798,
+        "primary_alert": "\u23e9 Pick Up Pace! Try to be more concise.",
+        "alert_level": "warning"
+      }
+    },
+    {
+      "question": "That's a great question to start with! Based on your resume, I'd like to dive into your \"Unified Data Management Engine\" project.\n\nCould you describe the specific types of complex data sets you were visualizing with Chart.js and what made them challenging to present effectively?",
+      "answer": "undefined database project management system is a project where I have built a  comprehensive data management system using Python and Flask for the back-end  developed and dynamic front-end using HTML JavaScript and chart.js to  visualize complex data sets efficiently streamline data handling  processes improving the data if your accessibility and presentation I know I  designed it for the database which are undefined mostly the students don't  define that great",
+      "duration_seconds": 52.62,
+      "timestamp": "2026-01-23T19:51:14.183992",
+      "evaluation": {
+        "technical_accuracy": 3,
+        "clarity": 2,
+        "depth": 2,
+        "completeness": 2,
+        "improvement_tip": "Focus on providing concrete examples of the complex data sets and the specific challenges they presented, rather than vague descriptions. Clearly articulate how Chart.js was used to overcome these challenges.",
+        "positive_note": "The candidate mentioned using Python, Flask, HTML, JavaScript, and Chart.js, indicating familiarity with relevant technologies."
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "\u23e9 Pick Up Pace! Try to be more concise.",
+        "filler_count": 0,
+        "words_per_minute": 78.67730900798176,
+        "primary_alert": "\u23e9 Pick Up Pace! Try to be more concise.",
+        "alert_level": "warning"
+      }
+    },
+    {
+      "question": "That's a great question to start with! Based on your resume, I'd like to dive into your \"Unified Data Management Engine\" project.\n\nCould you describe the specific types of complex data sets you were visualizing with Chart.js and what made them challenging to present effectively?\n\n---\n\n**(Candidate responds)**\n\n---\n\nGiven your experience building the backend for the Unified Data Management Engine with Flask, could you walk me through how you handled data validation and error handling to ensure data integrity within the system?",
+      "answer": "This is currently under development so I can't tell you everything",
+      "duration_seconds": 5.34,
+      "timestamp": "2026-01-23T19:56:05.381456",
+      "evaluation": {
+        "technical_accuracy": 1,
+        "clarity": 1,
+        "depth": 1,
+        "completeness": 1,
+        "improvement_tip": "The candidate should have provided at least some information about their approach to data validation and error handling, even if the project is still under development. They could have discussed general principles, potential strategies they are considering, or common patterns they would employ.",
+        "positive_note": "The candidate acknowledged the question directly."
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "OK",
+        "filler_count": 1,
+        "words_per_minute": 123.59550561797754,
+        "primary_alert": "\u2705 Great delivery! Keep it up.",
+        "alert_level": "ok"
+      }
+    },
+    {
+      "question": "That's a good overview of the data validation and error handling. Now, thinking about the \"Micky\" AI Voice Assistant, can you elaborate on the specific machine learning concepts you applied to achieve the voice recognition and response capabilities?",
+      "answer": "That is confidential. I can't tell you that",
+      "duration_seconds": 4.38,
+      "timestamp": "2026-01-23T19:58:12.523847",
+      "evaluation": {
+        "technical_accuracy": 1,
+        "clarity": 1,
+        "depth": 1,
+        "completeness": 1,
+        "improvement_tip": "Instead of stating the information is confidential, the candidate could have offered to discuss general concepts or publicly available information related to voice assistant ML, while respecting the confidentiality of specific project details.",
+        "positive_note": "The candidate was direct in their response, which can be seen as a form of clarity, albeit not the type expected in an interview."
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "OK",
+        "filler_count": 0,
+        "words_per_minute": 109.58904109589042,
+        "primary_alert": "\u2705 Great delivery! Keep it up.",
+        "alert_level": "ok"
+      }
+    }
+  ]
+}

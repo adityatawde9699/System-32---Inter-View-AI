@@ -52,4 +52,4 @@ ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 
 # Run the FastAPI application
-CMD ["python", "main.py"]
+CMD ["python", "main.py", "--host", "0.0.0.0", "--port", "8000"]
