@@ -61,12 +61,17 @@ def run_server(host: str = None, port: int = None):
     print(f"🏢 Environment: {'Production' if is_production else 'Development'}")
     print("\nPress Ctrl+C to stop the server\n")
     
+    # Production: use single worker without reload
+    # Development: use reload with reload_dirs
     uvicorn.run(
         "src.api.app:app",
         host=host,
         port=port,
         reload=enable_reload,
+        reload_dirs=["src"] if enable_reload else None,
+        workers=1,
         log_level="info",
+        access_log=False,  # Reduce log noise
     )
 
 

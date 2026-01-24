@@ -75,22 +75,32 @@ async def lifespan(app: FastAPI):
     logger.info("🚀 InterView AI API starting...")
     
     # Start background cleanup task
-    _cleanup_task = asyncio.create_task(background_cleanup_task())
+    try:
+        _cleanup_task = asyncio.create_task(background_cleanup_task())
+    except Exception as e:
+        logger.error(f"Failed to start cleanup task: {e}")
     
     # Warm up Whisper model asynchronously (non-blocking)
     logger.info("🔥 Pre-loading Whisper STT model (background)...")
     try:
-        def load_whisper():
-            from src.infra.speech.stt import WhisperSTT
-            stt = WhisperSTT()
-            logger.info("✅ Whisper model loaded successfully")
+        def load_whisper_safe():
+            """Load Whisper with comprehensive error handling."""
+            try:
+                from src.infra.speech.stt import WhisperSTT
+                stt = WhisperSTT()
+                logger.info("✅ Whisper model loaded successfully")
+                return True
+            except Exception as e:
+                logger.warning(f"⚠️ Whisper model warmup failed (will retry on first use): {e}")
+                return False
         
         # Run in thread pool to avoid blocking startup
         loop = asyncio.get_event_loop()
-        loop.run_in_executor(None, load_whisper)
+        future = loop.run_in_executor(None, load_whisper_safe)
+        # Don't await - let it load in background
         logger.info("📦 Whisper model loading started in background (server will be ready immediately)")
     except Exception as e:
-        logger.warning(f"⚠️ Whisper model warmup failed (will retry on first use): {e}")
+        logger.error(f"⚠️ Failed to start Whisper loading task: {e}")
     
     yield
     
