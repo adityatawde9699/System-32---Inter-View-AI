@@ -41,13 +41,13 @@ def run_server(host: str = None, port: int = None):
     import os
     
     # Support Railway and other cloud platforms
-    # Railway sets PORT env variable, default to 8000 for local development
     if host is None:
         # Use 0.0.0.0 for production (Railway), 127.0.0.1 for local
         host = os.getenv("HOST", "0.0.0.0" if os.getenv("RAILWAY_ENVIRONMENT") else "127.0.0.1")
     
     if port is None:
-        port = int(os.getenv("PORT", 8000))
+        # Always use port 8000
+        port = 8000
     
     # Disable hot reload in production
     is_production = bool(os.getenv("RAILWAY_ENVIRONMENT") or os.getenv("RENDER"))
