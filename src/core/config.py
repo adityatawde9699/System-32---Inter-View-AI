@@ -27,6 +27,12 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: str = ""
     
     # -------------------------------------------------------------------------
+    # Firebase Configuration
+    # -------------------------------------------------------------------------
+    # Path to your Firebase Admin SDK service account JSON file
+    FIREBASE_CREDENTIALS_PATH: str = "firebase_credentials.json"
+    
+    # -------------------------------------------------------------------------
     # Whisper STT Configuration
     # -------------------------------------------------------------------------
     WHISPER_MODEL: Literal["tiny", "base", "small", "medium", "large"] = "tiny"

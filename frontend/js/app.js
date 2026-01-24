@@ -1,7 +1,6 @@
 /**
  * InterView AI - Main Application JavaScript
- * 
- * Handles:
+ * * Handles:
  * - File upload and resume parsing
  * - Interview session management
  * - API communication
@@ -570,18 +569,29 @@ async function submitAnswer() {
 }
 
 async function endSession() {
-    if (!confirm('Are you sure you want to end the interview?')) {
+    // 1. Ask the user for their email using a browser prompt
+    const userEmail = prompt("Please enter your email address to receive the interview report:");
+
+    // 2. If the user clicks "Cancel" (returns null), stop the process
+    if (userEmail === null) {
+        return; 
+    }
+
+    // 3. Basic validation to ensure they didn't leave it empty
+    if (!userEmail.trim() || !userEmail.includes('@')) {
+        alert("Please enter a valid email address to end the session.");
         return;
     }
 
     showLoading('Generating summary...');
 
     try {
-        const response = await apiCall(`/session/end?session_id=${state.sessionId}`, {
+        // 4. Pass the user's input email to the API
+        const response = await apiCall(`/session/end?session_id=${state.sessionId}&user_email=${encodeURIComponent(userEmail)}`, {
             method: 'POST',
         });
 
-        // Show summary
+        // 5. Update UI with Summary
         elements.summaryDuration.textContent = response.duration_minutes.toFixed(1);
         elements.summaryQuestions.textContent = response.questions_asked;
         elements.summaryScore.textContent = response.average_score.toFixed(1);
@@ -590,6 +600,9 @@ async function endSession() {
 
         state.isInterviewActive = false;
         showPanel(elements.summaryPanel);
+        
+        // 6. Confirm sent
+        alert(`Interview ended! The report has been sent to ${userEmail}`);
 
     } catch (error) {
         console.error('End session error:', error);

@@ -7,6 +7,7 @@ Includes rate limiting to prevent abuse and Gemini credit drain.
 
 import logging
 from typing import Dict
+from datetime import datetime, timedelta
 
 import numpy as np
 from fastapi import APIRouter, HTTPException, UploadFile, File, WebSocket, WebSocketDisconnect, Query, Request
@@ -30,6 +31,7 @@ from src.app.coaching import AudioCoach, audio_bytes_to_numpy
 from src.infra.utils.pdf_parser import extract_from_bytes
 from src.core.domain.models import InterviewExchange
 from src.infra.persistence.repository import SessionRepository
+from src.infra.firebase_service import firebase_service  # <--- Added Import
 
 
 logger = logging.getLogger(__name__)
@@ -43,7 +45,6 @@ limiter = Limiter(key_func=get_remote_address)
 sessions: Dict[str, InterviewOrchestrator] = {}
 
 # Session timestamps for cleanup
-from datetime import datetime, timedelta
 session_created: Dict[str, datetime] = {}
 
 SESSION_TIMEOUT_HOURS = 2  # Cleanup sessions older than this
@@ -157,7 +158,10 @@ async def start_session(request: StartSessionRequest):
 
 
 @router.post("/session/end", response_model=SessionStatsResponse)
-async def end_session(session_id: str = Query(..., description="Session ID to end")):
+async def end_session(
+    session_id: str = Query(..., description="Session ID to end"),
+    user_email: str = Query(None, description="User email for report")
+):
     """End the current interview session."""
     try:
         orchestrator = get_orchestrator(session_id)
@@ -167,6 +171,11 @@ async def end_session(session_id: str = Query(..., description="Session ID to en
         
         summary = await orchestrator.end_session()
         
+        # Send email report via Firebase (if email provided)
+        if user_email:
+            logger.info(f"📧 Sending interview report to {user_email}")
+            firebase_service.send_interview_report(user_email, summary)
+
         # Clean up session from dict
         sessions.pop(session_id, None)
         
@@ -258,14 +267,14 @@ async def submit_answer(request: Request, answer_request: SubmitAnswerRequest):
         # Evaluate with Gemini
         evaluation = await orchestrator._gemini.evaluate_answer(
             question=orchestrator.session.current_question,
-            answer=request.answer_text,
+            answer=answer_request.answer_text,
         )
         
-        # Record the exchange in session (CRITICAL: this was missing!)
+        # Record the exchange in session
         exchange = InterviewExchange(
             question=orchestrator.session.current_question,
-            answer=request.answer_text,
-            answer_duration_seconds=request.duration_seconds,
+            answer=answer_request.answer_text,
+            answer_duration_seconds=answer_request.duration_seconds,
             evaluation=evaluation,
             coaching_feedback=coaching,
         )
@@ -275,15 +284,15 @@ async def submit_answer(request: Request, answer_request: SubmitAnswerRequest):
         if orchestrator._question_context:
             orchestrator._question_context.add_exchange(
                 orchestrator.session.current_question,
-                request.answer_text,
+                answer_request.answer_text,
             )
         
         # Persist session to disk for crash resistance
         session_repo.save(orchestrator.session)
         
         return AnswerResultResponse(
-            session_id=request.session_id,
-            transcript=request.answer_text,
+            session_id=answer_request.session_id,
+            transcript=answer_request.answer_text,
             coaching=CoachingFeedbackResponse(
                 volume_status=coaching.volume_status,
                 pace_status=coaching.pace_status,
@@ -474,4 +483,3 @@ async def websocket_audio(websocket: WebSocket, session_id: str):
     except Exception as e:
         logger.error(f"WebSocket error for session {session_id}: {e}")
         await websocket.close(code=1011, reason=str(e))
-

@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "session_id": "1e0bcb15",
+  "state": "evaluating",
+  "resume_text": "Mahesh Kirde [Phone Number] | [Email Address] | [LinkedIn Profile/Portfolio] Professional Summary Motivated B.Tech student specializing in Artificial Intelligence with a strong foundation in Python and Web Development. Passionate about building intelligent systems, demonstrated through the development of a personal AI voice assistant and a unified data management engine. Seeking a Summer 2026 internship in Machine Learning to apply technical skills and contribute to innovative AI solutions. Core Competencies Artificial Intelligence | Python Programming | Web Development Flask Framework | Data Visualization | HTML/JavaScript Project Experience Personal AI Voice Assistant (\"Micky\") | Personal Project | [Start Date] \u2013 Present \u2022 Developing a modular AI voice assistant using Python to automate tasks and enhance user interaction. \u2022 Implemented voice recognition and response capabilities, focusing on modular code architecture for easy feature expansion. Unified Data Management Engine (UDME) | System Development Project \u2022 Designed and built a comprehensive data management system using Python and Flask for the backend. \u2022 Developed a dynamic frontend using HTML, JavaScript, and Chart.js to visualize complex data sets effectively. \u2022 Streamlined data handling processes, improving data accessibility and presentation. Education B.Tech in Artificial Intelligence | [University Name] | [Expected Graduation Year] Certifications & Skills \u2022 Technical Skills: Python, Flask, JavaScript, HTML/CSS, Chart.js, Machine Learning Concepts. \u2022 Soft Skills: Problem-solving, Project Management, Continuous Learning. \u2022 [Add any specific certifications here, e.g., \"Certified Python Programmer\" or \"Google AI Essentials\"]",
+  "job_description": "artificial intelligence  engineer",
+  "current_question": "Could you walk me through the process of developing your Personal AI Voice Assistant, \"Micky,\" and what you found most challenging or rewarding about that project?",
+  "started_at": "2026-01-24T17:53:36.593484",
+  "ended_at": null,
+  "total_questions_asked": 1,
+  "total_filler_words": 1,
+  "average_wpm": 0.0,
+  "exchanges": [
+    {
+      "question": "Could you walk me through the process of developing your Personal AI Voice Assistant, \"Micky,\" and what you found most challenging or rewarding about that project?",
+      "answer": "Mickey is an artificial intelligence assistant which I built inspired from the movie Iron  Man where Tony Stark got a Jarvis AI assistant.  I have used Python for it to building it and gave it very much abilities like opening  closing and other secretory related functions.",
+      "duration_seconds": 0,
+      "timestamp": "2026-01-24T17:54:40.081495",
+      "evaluation": {
+        "technical_accuracy": 5,
+        "clarity": 5,
+        "depth": 5,
+        "completeness": 5,
+        "improvement_tip": "Unable to evaluate - please continue.",
+        "positive_note": "Keep going!"
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "OK",
+        "filler_count": 1,
+        "words_per_minute": 0.0,
+        "primary_alert": "\u2705 Great delivery! Keep it up.",
+        "alert_level": "ok"
+      }
+    }
+  ]
+}
