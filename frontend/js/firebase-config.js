@@ -2,13 +2,13 @@
 
 // 1. Your Web App's Firebase Configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDMUPBhgYlPSyroIDPtJlU4hNecioHDQM8",
-  authDomain: "system-32-70354.firebaseapp.com",
-  projectId: "system-32-70354",
-  storageBucket: "system-32-70354.firebasestorage.app",
-  messagingSenderId: "1040628446776",
-  appId: "1:1040628446776:web:b199662f9e17cee62ed8cd",
-  measurementId: "G-E3L82P0646"
+    apiKey: "AIzaSyDMUPBhgYlPSyroIDPtJlU4hNecioHDQM8",
+    authDomain: "system-32-70354.firebaseapp.com",
+    projectId: "system-32-70354",
+    storageBucket: "system-32-70354.firebasestorage.app",
+    messagingSenderId: "1040628446776",
+    appId: "1:1040628446776:web:b199662f9e17cee62ed8cd",
+    measurementId: "G-E3L82P0646"
 };
 
 // 2. Initialize Firebase (Compat syntax)
@@ -27,7 +27,7 @@ const loginError = document.getElementById('login-error');
 if (loginBtn) {
     loginBtn.addEventListener('click', () => {
         loginError.classList.add('hidden');
-        
+
         firebase.auth().signInWithPopup(googleProvider)
             .catch((error) => {
                 console.error("Login failed:", error);
@@ -42,7 +42,7 @@ if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
         firebase.auth().signOut().then(() => {
             // Reload page to reset state
-            window.location.reload(); 
+            window.location.reload();
         });
     });
 }
@@ -52,21 +52,31 @@ firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // --- User is Signed In ---
         console.log("User logged in:", user.email);
-        
-        // Hide Login, Show Setup (or Interview if already setup)
+
+        // Hide Login, Show Setup (unless currently in an interview)
         if (loginPanel) loginPanel.classList.add('hidden');
-        if (setupPanel) setupPanel.classList.remove('hidden');
+
+        // Only show setup if interview isn't active
+        const isInterviewActive = document.getElementById('interview-panel') &&
+            !document.getElementById('interview-panel').classList.contains('hidden');
+        const isSummaryActive = document.getElementById('summary-panel') &&
+            !document.getElementById('summary-panel').classList.contains('hidden');
+
+        if (setupPanel && !isInterviewActive && !isSummaryActive) {
+            setupPanel.classList.remove('hidden');
+        }
+
         if (logoutBtn) logoutBtn.classList.remove('hidden');
-        
+
     } else {
         // --- User is Signed Out ---
         console.log("User logged out");
-        
+
         // Show Login, Hide everything else
         if (loginPanel) loginPanel.classList.remove('hidden');
         if (setupPanel) setupPanel.classList.add('hidden');
         if (logoutBtn) logoutBtn.classList.add('hidden');
-        
+
         // Ensure other panels are hidden
         const interviewPanel = document.getElementById('interview-panel');
         const summaryPanel = document.getElementById('summary-panel');

@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "session_id": "51cd8af9",
+  "state": "evaluating",
+  "resume_text": "MAHESH KIRDE Maharashtra, India Email: kirdemahesh@email.com | Mobile:7822884694 LinkedIn / GitHub: CAREER OBJECTIVE Passionate Artificial Intelligence & Data Science student with strong interest in AI, Data Analysis, and Web Development. Seeking opportunities to apply technical skills, learn industry practices, and contribute to real-world projects while growing as a professional. EDUCATION B.Tech in Artificial Intelligence & Data Science Jawaharlal Nehru Engineering college , Maharashtra (Expected Graduation: 2026) TECHNICAL SKILLS \u2022 Programming: C, Python, JavaScript \u2022 Web: HTML, CSS, ReactJS, Node.js \u2022 Database: MongoDB, MySQL \u2022 Tools: Git, VS Code, PowerPoint \u2022 Basics of Machine Learning & Data Analysis PROJECTS \u2022 AgMarket Watch \u2013 App providing live seed & pulse prices for districts in Maharashtra \u2022 React-based Portfolio Website with modern UI/UX and responsive design \u2022 Free Fire Tournament Website with registration system CERTIFICATIONS / LEARNING \u2022 AI & Data Science fundamentals \u2022 Web Development (Frontend & MERN basics) \u2022 Self-learning through projects & online platforms STRENGTHS \u2022 Quick learner & problem solver \u2022 Creative thinker with UI/UX sense \u2022 Good communication & teamwork skills DECLARATION I hereby declare that the above information is true to the best of my knowledge.",
+  "job_description": "I want to become AI data science engineer",
+  "current_question": "Could you tell me more about the AgMarket Watch app you developed? I'm particularly interested in how you approached gathering and displaying the live seed and pulse prices for the districts in Maharashtra.",
+  "started_at": "2026-01-24T14:33:59.802140",
+  "ended_at": null,
+  "total_questions_asked": 1,
+  "total_filler_words": 0,
+  "average_wpm": 168.22429906542055,
+  "exchanges": [
+    {
+      "question": "Could you tell me more about the AgMarket Watch app you developed? I'm particularly interested in how you approached gathering and displaying the live seed and pulse prices for the districts in Maharashtra.",
+      "answer": "Hello, 123 mic check. I don't want to give you information about this. This is the confidential data.",
+      "duration_seconds": 6.42,
+      "timestamp": "2026-01-24T14:35:11.246896",
+      "evaluation": {
+        "technical_accuracy": 1,
+        "clarity": 1,
+        "depth": 1,
+        "completeness": 1,
+        "improvement_tip": "The candidate should have stated that due to confidentiality, they cannot share specific details of the data sources or implementation. However, they could have provided a high-level overview of the *types* of approaches they might have used for gathering and displaying such data in a generalized manner, without revealing proprietary information. For example, discussing potential APIs, web scraping techniques, or database structures that are common in such applications.",
+        "positive_note": "The candidate correctly identified that the information requested was confidential, which shows an understanding of data security and proprietary information."
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "\ud83d\udc22 Slow Down! Take a breath between thoughts.",
+        "filler_count": 0,
+        "words_per_minute": 168.22429906542055,
+        "primary_alert": "\ud83d\udc22 Slow Down! Take a breath between thoughts.",
+        "alert_level": "warning"
+      }
+    }
+  ]
+}

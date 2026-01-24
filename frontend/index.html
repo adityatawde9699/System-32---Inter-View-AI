@@ -14,6 +14,10 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- Firebase SDK (Compat v8) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -26,12 +30,37 @@
             <nav class="nav">
                 <a href="#" class="nav-link active">Interview</a>
                 <a href="/api/docs" class="nav-link" target="_blank">API Docs</a>
+                <button id="logout-btn" class="btn-logout hidden">
+                    <span class="logout-icon">🚪</span> Logout
+                </button>
             </nav>
         </div>
     </header>
 
     <!-- Main Container -->
     <main class="main-container">
+
+        <!-- Login Panel (Entry State) -->
+        <section id="login-panel" class="panel login-panel">
+            <div class="login-card">
+                <div class="login-header">
+                    <span class="login-icon">🚀</span>
+                    <h1>Welcome to InterView AI</h1>
+                    <p>Elevate your career with real-time AI coaching</p>
+                </div>
+                <div class="login-body">
+                    <p class="login-description">
+                        Sign in to start your personalized interview session, 
+                        upload your resume, and get instant feedback on your performance.
+                    </p>
+                    <button id="google-login-btn" class="btn btn-google">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="btn-icon-img">
+                        Sign in with Google
+                    </button>
+                    <p id="login-error" class="status-message error hidden"></p>
+                </div>
+            </div>
+        </section>
         
         <!-- Setup Panel (Initial State) -->
         <section id="setup-panel" class="panel setup-panel">
@@ -230,6 +259,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="/static/js/firebase-config.js"></script>
     <script src="/static/js/app.js"></script>
 </body>
 </html>
