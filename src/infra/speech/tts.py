@@ -128,15 +128,15 @@ class ElevenLabsTTSEngine(BaseTTSEngine):
             return None
 
         try:
-            audio_gen = self._client.generate(
+            audio_gen = self._client.text_to_speech.convert(
                 text=text,
-                voice=self._voice_id,
-                model="eleven_multilingual_v2"
+                voice_id=self._voice_id,
+                model_id="eleven_multilingual_v2"
             )
             # Collect bytes from generator
             return b"".join(audio_gen)
         except Exception as e:
-            logger.error(f"ElevenLabs TTS synthesis error: {e}")
+            logger.error(f"ElevenLabs TTS synthesis error: {str(e)}")
             return None
 
 

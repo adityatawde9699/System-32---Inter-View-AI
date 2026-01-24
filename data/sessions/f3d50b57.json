@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "session_id": "f3d50b57",
+  "state": "evaluating",
+  "resume_text": "MAHESH KIRDE Maharashtra, India Email: kirdemahesh@email.com | Mobile:7822884694 LinkedIn / GitHub: CAREER OBJECTIVE Passionate Artificial Intelligence & Data Science student with strong interest in AI, Data Analysis, and Web Development. Seeking opportunities to apply technical skills, learn industry practices, and contribute to real-world projects while growing as a professional. EDUCATION B.Tech in Artificial Intelligence & Data Science Jawaharlal Nehru Engineering college , Maharashtra (Expected Graduation: 2026) TECHNICAL SKILLS \u2022 Programming: C, Python, JavaScript \u2022 Web: HTML, CSS, ReactJS, Node.js \u2022 Database: MongoDB, MySQL \u2022 Tools: Git, VS Code, PowerPoint \u2022 Basics of Machine Learning & Data Analysis PROJECTS \u2022 AgMarket Watch \u2013 App providing live seed & pulse prices for districts in Maharashtra \u2022 React-based Portfolio Website with modern UI/UX and responsive design \u2022 Free Fire Tournament Website with registration system CERTIFICATIONS / LEARNING \u2022 AI & Data Science fundamentals \u2022 Web Development (Frontend & MERN basics) \u2022 Self-learning through projects & online platforms STRENGTHS \u2022 Quick learner & problem solver \u2022 Creative thinker with UI/UX sense \u2022 Good communication & teamwork skills DECLARATION I hereby declare that the above information is true to the best of my knowledge.",
+  "job_description": "Artificial intelligence\nengineer",
+  "current_question": "Could you tell me more about your AgMarket Watch project and the specific challenges you encountered in providing live seed and pulse prices for districts in Maharashtra?",
+  "started_at": "2026-01-24T17:11:04.700489",
+  "ended_at": null,
+  "total_questions_asked": 1,
+  "total_filler_words": 0,
+  "average_wpm": 114.28571428571428,
+  "exchanges": [
+    {
+      "question": "Could you tell me more about your AgMarket Watch project and the specific challenges you encountered in providing live seed and pulse prices for districts in Maharashtra?",
+      "answer": "I just don't want to give you answer",
+      "duration_seconds": 4.2,
+      "timestamp": "2026-01-24T17:12:28.023602",
+      "evaluation": {
+        "technical_accuracy": 0,
+        "clarity": 0,
+        "depth": 0,
+        "completeness": 0,
+        "improvement_tip": "The candidate needs to provide a substantive answer to the question asked, rather than refusing to answer. They should aim to describe the project, the challenges, and their approach to overcoming them.",
+        "positive_note": "None"
+      },
+      "coaching": {
+        "volume_status": "OK",
+        "pace_status": "OK",
+        "filler_count": 0,
+        "words_per_minute": 114.28571428571428,
+        "primary_alert": "\u2705 Great delivery! Keep it up.",
+        "alert_level": "ok"
+      }
+    }
+  ]
+}
